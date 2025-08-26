@@ -1,4 +1,4 @@
-UTTONS FOR: 
+BUTTONS FOR: 
 
 Add new student names to a list. - 2 person (rozz) (duenas)
 Display the list of students. - 1 person (Miriam) 
