@@ -17,77 +17,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
-
+    <link rel="stylesheet" href="style.css" />
     <title>Student Information Management System</title>
   </head>
-
-  <style>
-    body {
-      background-color: #bbdce5;
-      font-family: "Lexend Deca", sans-serif;
-    }
-
-    h1 {
-      font-size: 40px;
-      font-weight: bold;
-      text-align: center;
-      color: #083251;
-    }
-
-    .sidebar {
-      position: fixed;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 250px;
-      background-color: #71a4c6;
-      padding-top: 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .sidebar button {
-      width: 190px;
-      height: 45px;
-      border-radius: 8px;
-      margin: 10px 0;
-      background: white;
-      color: #333;
-      font-weight: bold;
-      border: none;
-      transition: 0.3s;
-    }
-
-    .sidebar button:hover {
-      background: #083251;
-      color: white;
-    }
-
-    .profile-holder {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background-color: white;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 50px;
-      color: #71a4c6;
-      border: 3px solid #fff;
-    }
-
-    .content {
-      margin-left: 240px;
-      padding: 20px;
-    }
-
-    .myResult{
-        background-color: #fff;
-    }
-  </style>
-
   <body>
     <!-- SIDEBAR -->
     <div class="sidebar">
@@ -95,10 +27,10 @@
         <i class="bi bi-person-circle"></i>
       </div>
 
-        <!-- THE FUNCTION NAME MUST DELCARE INSIDE, for example : onClick=(myFunctions)-->
-      <button onClick="">ADD STUDENT</button> 
+      <!-- THE FUNCTION NAME MUST DELCARE INSIDE, for example : onClick=(myFunctions)-->
+      <button onclick="addStudent()">ADD STUDENT</button> 
       <button onClick="">REMOVE STUDENT</button>
-      <button onClick="">DISPLAY STUDENT</button>
+      <button onClick="displayStudents()">DISPLAY STUDENT</button>
       <button onClick="">STUDENT COUNT</button>
       <button onClick="">STUDENT POSITION</button>
       <button onClick="">JOIN STUDENT</button>
@@ -111,22 +43,46 @@
         <input
           type="text"
           class="form-control form-control-lg w-60 mx-auto mt-5 mb-1"
-          placeholder="Enter student name"
+          id="studentName"
+          placeholder="Enter Student Name"
         />
 
-        <div class="container myResult h-500 w-60 mx-auto mt-5 mb-1 p-4 rounded shadow">
-        <p>DITO NYO DIDISPLAY YUNG DATA NA GINAWAN NYO FUNCTIONS/ YOU CAN USE P TAG OR DIV</p>
-
-        <!--EXAMPLE USING P TAG APPLYING DOM-->
-        <p id="studentList"></p>
-
+        <div
+          class="container myResult h-500 w-60 mx-auto mt-5 mb-1 p-4 rounded shadow"
+        >
+          <p id="output"></p>
+          <p id="studentList"></p>
         </div>
       </div>
     </div>
-
   </body>
 
   <script>
+    let students = [];
+
+    function addStudent() {
+      let name = document.getElementById("studentName").value.trim();
+      if (name === "") {
+        document.getElementById("output").innerHTML =
+          "Please enter a student name.";
+        return;
+      }
+      students.push(name);
+      document.getElementById("output").innerText =
+        name + " added successfully!";
+      document.getElementById("studentName").value = "";
+    }
+
+    function displayStudents() {
+      if (students.length === 0) {
+        document.getElementById("output").innerText = "No students found.";
+      } else {
+        document.getElementById("output").innerHTML =
+          "<strong>STUDENT LIST:</strong> <br>" +
+          "<hr>" +
+          students.join("<br><hr>");
+      }
+    }
 
 
   </script>
