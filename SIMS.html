@@ -33,7 +33,7 @@
       <button onClick="displayStudents()">DISPLAY STUDENT</button>
       <button onClick="">STUDENT COUNT</button>
       <button onClick="">STUDENT POSITION</button>
-      <button onClick="">JOIN STUDENT</button>
+      <button onClick="joinStudents()">JOIN STUDENT</button>
     </div>
 
     <!-- CONTENT SECTION-->
@@ -93,5 +93,16 @@
           removed + " removed successfully!";
       }
     }
+
+    function joinStudents() {
+    if (students.length === 0) {
+      document.getElementById("output").innerText = "No students to join.";
+    } else {
+      document.getElementById("output").innerHTML =
+        "<strong>JOINED STUDENTS:</strong> <br>" +
+        students.join(", "); 
+    }
+  }
+
   </script>
 </html>
