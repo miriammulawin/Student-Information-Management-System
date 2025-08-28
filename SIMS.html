@@ -28,8 +28,8 @@
       </div>
 
       <!-- THE FUNCTION NAME MUST DELCARE INSIDE, for example : onClick=(myFunctions)-->
-      <button onclick="addStudent()">ADD STUDENT</button> 
-      <button onClick="">REMOVE STUDENT</button>
+      <button onclick="addStudent()">ADD STUDENT</button>
+      <button onClick="removeStudent()">REMOVE</button>
       <button onClick="displayStudents()">DISPLAY STUDENT</button>
       <button onClick="">STUDENT COUNT</button>
       <button onClick="">STUDENT POSITION</button>
@@ -84,6 +84,14 @@
       }
     }
 
-
+    function removeStudent() {
+      if (students.length === 0) {
+        document.getElementById("output").innerText = "No students to remove.";
+      } else {
+        let removed = students.pop();
+        document.getElementById("output").innerText =
+          removed + " removed successfully!";
+      }
+    }
   </script>
 </html>
