@@ -31,8 +31,13 @@
       <button onclick="addStudent()">ADD STUDENT</button>
       <button onClick="removeStudent()">REMOVE</button>
       <button onClick="displayStudents()">DISPLAY STUDENT</button>
+<<<<<<< HEAD
       <button onClick="">STUDENT COUNT</button>
       <button onClick="showStudentAt()">STUDENT POSITION</button>
+=======
+      <button onClick="studentCount()">STUDENT COUNT</button>
+      <button onClick="">STUDENT POSITION</button>
+>>>>>>> 657ff68d1c7c831aac8b47ed35bb33f71bbe1177
       <button onClick="joinStudents()">JOIN STUDENT</button>
     </div>
 
@@ -62,14 +67,15 @@
 
     function addStudent() {
       let name = document.getElementById("studentName").value.trim();
+
       if (name === "") {
-        document.getElementById("output").innerHTML =
-          "Please enter a student name.";
+        document.getElementById("output").innerHTML = 
+          "<strong>FIELD IS EMPTY</strong> <br> Please enter a student name.";
         return;
       }
       students.push(name);
-      document.getElementById("output").innerText =
-        name + " added successfully!";
+      document.getElementById("output").innerHTML = 
+        name + "<strong> Successfully Added!</strong>";
       document.getElementById("studentName").value = "";
     }
 
@@ -90,10 +96,11 @@
       } else {
         let removed = students.pop();
         document.getElementById("output").innerText =
-          removed + " removed successfully!";
+          removed + "<strong> Remove SUccessfully!</strong>";
       }
     }
 
+<<<<<<< HEAD
     function showStudentAt() {
       try {
         const position = parseInt(
@@ -111,8 +118,18 @@
           "output"
         ).innerText = `Error in showStudentAt: ${error.message}`;
       }
+=======
+    function joinStudents() {
+    if (students.length === 0) {
+      document.getElementById("output").innerText = "No students to join.";
+    } else {
+      document.getElementById("output").innerHTML =
+        "<strong>JOINED STUDENTS:</strong> <br> <br>" +
+        students.join(", "); 
+>>>>>>> 657ff68d1c7c831aac8b47ed35bb33f71bbe1177
     }
 
+<<<<<<< HEAD
     function joinStudents() {
       if (students.length === 0) {
         document.getElementById("output").innerText = "No students to join.";
@@ -121,5 +138,14 @@
           "<strong>JOINED STUDENTS:</strong> <br>" + students.join(", ");
       }
     }
+=======
+  function studentCount() {
+    document.getElementById("output").innerHTML = 
+      "<strong>STUDENT COUNT:</strong> <br>" +
+      "<hr>" +
+      "Total number of students: " + students.length;
+  }
+
+>>>>>>> 657ff68d1c7c831aac8b47ed35bb33f71bbe1177
   </script>
 </html>
