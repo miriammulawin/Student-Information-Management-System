@@ -31,7 +31,7 @@
       <button onclick="addStudent()">ADD STUDENT</button>
       <button onClick="removeStudent()">REMOVE</button>
       <button onClick="displayStudents()">DISPLAY STUDENT</button>
-      <button onClick="">STUDENT COUNT</button>
+      <button onClick="studentCount()">STUDENT COUNT</button>
       <button onClick="">STUDENT POSITION</button>
       <button onClick="joinStudents()">JOIN STUDENT</button>
     </div>
@@ -62,14 +62,15 @@
 
     function addStudent() {
       let name = document.getElementById("studentName").value.trim();
+
       if (name === "") {
-        document.getElementById("output").innerHTML =
-          "Please enter a student name.";
+        document.getElementById("output").innerHTML = 
+          "<strong>FIELD IS EMPTY</strong> <br> Please enter a student name.";
         return;
       }
       students.push(name);
-      document.getElementById("output").innerText =
-        name + " added successfully!";
+      document.getElementById("output").innerHTML = 
+        name + "<strong> Successfully Added!</strong>";
       document.getElementById("studentName").value = "";
     }
 
@@ -90,7 +91,7 @@
       } else {
         let removed = students.pop();
         document.getElementById("output").innerText =
-          removed + " removed successfully!";
+          removed + "<strong> Remove SUccessfully!</strong>";
       }
     }
 
@@ -99,9 +100,16 @@
       document.getElementById("output").innerText = "No students to join.";
     } else {
       document.getElementById("output").innerHTML =
-        "<strong>JOINED STUDENTS:</strong> <br>" +
+        "<strong>JOINED STUDENTS:</strong> <br> <br>" +
         students.join(", "); 
     }
+  }
+
+  function studentCount() {
+    document.getElementById("output").innerHTML = 
+      "<strong>STUDENT COUNT:</strong> <br>" +
+      "<hr>" +
+      "Total number of students: " + students.length;
   }
 
   </script>
