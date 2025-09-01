@@ -31,7 +31,7 @@
       <button onclick="addStudent()">ADD STUDENT</button>
       <button onClick="removeStudent()">REMOVE</button>
       <button onClick="displayStudents()">DISPLAY STUDENT</button>
-      <button onClick="">STUDENT COUNT</button>
+      <button onClick="studentCount()">STUDENT COUNT</button>
       <button onClick="showStudentAt()">STUDENT POSITION</button>
       <button onClick="joinStudents()">JOIN STUDENT</button>
     </div>
@@ -50,6 +50,7 @@
         <div
           class="container myResult h-500 w-60 mx-auto mt-5 mb-1 p-4 rounded shadow"
         >
+          <p id="title"></p>
           <p id="output"></p>
           <p id="studentList"></p>
         </div>
@@ -93,6 +94,13 @@
           removed + " removed successfully!";
       }
     }
+    function studentCount() {
+      document.getElementById("output").innerHTML =
+        "<strong>STUDENT COUNT:</strong> <br>" +
+        "<hr>" +
+        "Total number of students: " +
+        students.length;
+    }
 
     function showStudentAt() {
       try {
@@ -104,7 +112,8 @@
             "output"
           ).innerText = `Student at position ${position}: ${students[position]}`;
         } else {
-          document.getElementById("output").innerText = "Invalid position.";
+          document.getElementById("output").innerText =
+            "No Student Found At Position " + position;
         }
       } catch (error) {
         document.getElementById(
